@@ -124,7 +124,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
             <LuxuryPrice
               price={product.price}
               compareAtPrice={product.compareAtPrice}
-              size="default"
+              size="lg"
             />
           </div>
         </div>
