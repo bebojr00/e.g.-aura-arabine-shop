@@ -10,49 +10,62 @@ export default function BestSellers() {
   const bestSellers = getBestSellers();
 
   return (
-    <section className="py-24 bg-background">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="py-40 relative bg-background cinematic-grain overflow-hidden">
+      {/* Cinematic Lighting & Atmosphere */}
+      <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-b from-black/0 via-gold/5 to-black/0 pointer-events-none" />
+      <div className="absolute -top-[20%] -left-[10%] w-[60%] h-[60%] bg-gold/10 blur-[150px] rounded-full pointer-events-none" />
+      <div className="fog-overlay opacity-30" />
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          viewport={{ once: true, margin: "-150px" }}
+          transition={{ duration: 1.2, ease: [0.65, 0, 0.35, 1] }}
+          className="text-center mb-32"
         >
-          <p className="text-sm tracking-[0.3em] uppercase text-primary mb-4">
-            Customer Favorites
+          <p className="text-[10px] tracking-[0.5em] uppercase text-gold mb-8 font-medium">
+            The Icons
           </p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-foreground mb-6">
-            Best Sellers
+          <h2 className="text-5xl sm:text-6xl md:text-7xl luxury-title text-foreground mb-10 drop-shadow-xl">
+            Bestsellers
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Our most loved fragrances, chosen by those who appreciate true
-            luxury. Discover the scents that have captivated Egypt.
+          <p className="text-muted-foreground/80 max-w-2xl mx-auto font-light leading-loose text-lg">
+            Discover our most sought-after fragrances. A curated selection of masterpieces that define modern Gulf luxury and sophisticated elegance.
           </p>
         </motion.div>
 
-        {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* Products Grid - Asymmetrical Editorial Layout */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-24 items-start">
           {bestSellers.map((product, index) => (
-            <ProductCard key={product.id} product={product} index={index} />
+            <motion.div
+              key={product.id}
+              className={`w-full ${index % 2 === 1 ? 'lg:mt-24 sm:mt-16' : ''}`}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 1.2, delay: index * 0.2, ease: [0.65, 0, 0.35, 1] }}
+            >
+              <ProductCard product={product} index={index} />
+            </motion.div>
           ))}
         </div>
 
         {/* CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-center mt-16"
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 1.2, delay: 0.5, ease: [0.65, 0, 0.35, 1] }}
+          className="text-center mt-32"
         >
           <Link
             href="/shop"
-            className="group inline-flex items-center gap-3 text-sm tracking-widest uppercase text-primary hover:text-primary/80 transition-colors"
+            className="magnetic-button group inline-flex items-center gap-6 px-12 py-6 border border-gold/30 text-[11px] tracking-[0.4em] uppercase text-gold hover:bg-gold/5 transition-all duration-700 hover:border-gold/80"
           >
-            View All Products
-            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            Explore The Full Collection
+            <ArrowRight className="h-5 w-5 group-hover:translate-x-3 transition-transform duration-700" />
           </Link>
         </motion.div>
       </div>

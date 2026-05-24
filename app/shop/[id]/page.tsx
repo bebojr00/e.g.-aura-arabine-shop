@@ -17,11 +17,11 @@ export async function generateMetadata({
   const product = getProductById(id);
 
   if (!product) {
-    return { title: "منتج غير موجود | أورا عربين" };
+    return { title: "Product Not Found | Aura Arabine" };
   }
 
   return {
-    title: `${product.name} — ${product.brand} | أورا عربين`,
+    title: `${product.name} — ${product.brand} | Aura Arabine`,
     description: product.description,
   };
 }

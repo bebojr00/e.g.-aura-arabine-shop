@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Tajawal, Amiri } from "next/font/google";
+import { Cormorant_Garamond, Playfair_Display, Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { CartProvider } from "@/lib/cart-context";
@@ -15,45 +15,40 @@ const cormorant = Cormorant_Garamond({
   display: "swap",
 });
 
-const tajawal = Tajawal({
-  subsets: ["arabic"],
-  weight: ["300", "400", "500", "700"],
-  variable: "--font-tajawal",
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-playfair",
   display: "swap",
 });
 
-const amiri = Amiri({
-  subsets: ["arabic"],
-  weight: ["400", "700"],
-  variable: "--font-amiri",
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["300", "400", "500"],
+  variable: "--font-inter",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "أورا عربين | عطور فاخرة من قلب الخليج",
+  title: "Aura Arabine | Luxury Fragrances from the Gulf",
   description:
-    "اكتشف أرقى العطور الخليجية الأصيلة المستوردة من المملكة العربية السعودية. تشكيلات فاخرة، عطور تدوم طويلاً، ومجموعات هدايا ملكية. تسوق الآن في مصر.",
+    "Discover authentic luxury Gulf fragrances imported from Saudi Arabia. Premium collections, long-lasting scents, and luxury gift sets. Shop now.",
   keywords: [
-    "عطور فاخرة",
-    "عطور خليجية",
-    "عطور سعودية",
-    "عطور عربية",
-    "نيش فراجرانس",
-    "عطور مصر",
-    "أورا عربين",
-    "luxury perfume egypt",
+    "luxury perfume",
     "gulf perfume",
+    "saudi fragrance",
     "arabic fragrance",
+    "niche fragrance",
+    "luxury fragrance egypt",
     "aura arabine",
   ],
-  authors: [{ name: "أورا عربين" }],
+  authors: [{ name: "Aura Arabine" }],
   openGraph: {
-    title: "أورا عربين | عطور فاخرة من قلب الخليج",
+    title: "Aura Arabine | Elite Perfume Boutique",
     description:
-      "عطور خليجية أصيلة مستوردة من المملكة العربية السعودية. جودة لا تُضاهى، رائحة تدوم طويلاً.",
+      "Authentic luxury Gulf fragrances imported from Saudi Arabia. Unmatched quality, long-lasting presence.",
     type: "website",
-    locale: "ar_EG",
-    alternateLocale: "en_EG",
+    locale: "en_US",
   },
 };
 
@@ -69,9 +64,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ar" dir="rtl" className="bg-background">
+    <html lang="en" dir="ltr" className="bg-background">
       <body
-        className={`${cormorant.variable} ${tajawal.variable} ${amiri.variable} font-sans antialiased`}
+        className={`${cormorant.variable} ${playfair.variable} ${inter.variable} font-sans antialiased`}
       >
         <CartProvider>
           <Header />

@@ -5,18 +5,18 @@ import type { ProductBadge } from "@/data/products";
 
 const badgeStyles: Record<string, string> = {
   bestseller_ar:
-    "bg-primary/90 text-primary-foreground border-primary/50 luxury-badge-glow",
-  trend: "bg-accent/20 text-accent border-accent/40 luxury-badge-glow",
+    "bg-gold/90 text-oud-brown border-gold/50 luxury-badge-glow",
+  trend: "bg-accent/20 text-accent-foreground border-accent/40 luxury-badge-glow",
   sale: "bg-destructive/90 text-destructive-foreground border-destructive/50 luxury-badge-glow",
   limited_stock:
-    "bg-background/90 text-primary border-primary/50 backdrop-blur-md",
+    "bg-black/40 text-gold border-gold/50 backdrop-blur-md animate-badge-pulse",
   bestseller:
-    "bg-foreground/90 text-background border-foreground/30 luxury-badge-glow",
+    "bg-ivory/90 text-oud-brown border-ivory/30 luxury-badge-glow",
   exclusive:
-    "bg-card text-primary border-primary/60 backdrop-blur-md luxury-badge-glow",
+    "bg-black/60 text-gold border-gold/60 backdrop-blur-md luxury-badge-glow",
   hurry_ar:
     "bg-destructive/80 text-white border-destructive luxury-badge-glow animate-badge-pulse",
-  new: "bg-primary/90 text-primary-foreground border-primary/50",
+  new: "bg-gold/90 text-oud-brown border-gold/50",
   limited: "bg-destructive/90 text-destructive-foreground border-destructive/50",
 };
 
@@ -38,10 +38,8 @@ function BadgeLabel({
   animate: boolean;
   index: number;
 }) {
-  const label = badge.labelAr
-    ? `${badge.labelAr}${badge.label !== badge.labelAr ? ` · ${badge.label}` : ""}`
-    : badge.label;
-  const className = `inline-flex w-fit px-2.5 py-1 text-[9px] sm:text-[10px] tracking-[0.15em] uppercase border ${style}`;
+  const label = badge.label;
+  const className = `inline-flex w-fit px-3 py-1.5 text-[9px] sm:text-[10px] tracking-[0.2em] uppercase border ${style} font-medium`;
 
   if (!animate) {
     return <span className={className}>{label}</span>;
@@ -49,10 +47,10 @@ function BadgeLabel({
 
   return (
     <motion.span
-      initial={{ opacity: 0, x: -8 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ delay: index * 0.06, duration: 0.4 }}
-      whileHover={{ scale: 1.04 }}
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ delay: index * 0.1, duration: 0.5, ease: "easeOut" }}
+      whileHover={{ scale: 1.05 }}
       className={className}
     >
       {label}
@@ -69,7 +67,7 @@ export default function LuxuryBadges({
   const visible = badges.slice(0, max);
 
   return (
-    <div className={`flex flex-col gap-1.5 z-10 ${className}`}>
+    <div className={`flex flex-col gap-2 z-10 ${className}`}>
       {visible.map((badge, i) => (
         <BadgeLabel
           key={`${badge.id}-${i}`}

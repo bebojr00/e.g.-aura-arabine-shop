@@ -5,9 +5,9 @@ export const WHATSAPP_DISPLAY = "010 324 350 87";
 
 export const INSTAGRAM_URL = "https://instagram.com/aurafr_ara";
 
-export const BUSINESS_NAME = "أورا عربين";
-export const BUSINESS_NAME_EN = "Aura Arabine";
-export const BRAND_TAGLINE_AR = "عطور فاخرة من قلب الخليج";
+export const BUSINESS_NAME = "AURA ARABINE";
+export const BUSINESS_NAME_EN = "AURA ARABINE";
+export const BRAND_TAGLINE_AR = "Luxury Fragrances from the Heart of the Gulf";
 export const BRAND_TAGLINE_EN = "Luxury Fragrances from the Heart of the Gulf";
 
 export const FREE_SHIPPING_THRESHOLD_EGP = 3000;

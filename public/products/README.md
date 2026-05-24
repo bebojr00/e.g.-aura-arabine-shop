@@ -1,27 +1,53 @@
-# Product images
+# Luxury Product Image Guidelines
 
-Official product photography synced from **ASSAF** (`assaf.ae`) and **IBRAQ** (`usaibrahimalqurashi.com`) Shopify stores, optimized as JPEG for the web.
+To complete the cinematic luxury experience, all placeholder images should be replaced with high-quality, editorial-style perfume photography.
 
-## Re-sync images
+## Required Image Filenames
 
-```bash
-npm run images:sync
-```
+Save your images locally inside this directory (`public/products/`) using the following exact filenames (as `.jpg` or `.png`):
 
-Requires Node.js and `sharp` (dev dependency).
+### 150ML Collection
+- `wild-colt-assaf.jpg`
+- `arrogate-comete-assaf.jpg`
+- `gris-erik-luxury-assaf.jpg`
+- `noble-assaf.jpg`
+- `frankel-silver-elixir-assaf.jpg`
+- `rebel-enable-assaf.jpg`
 
-## Files
+### Tobacco Collection
+- `wild-colt-tobacco.jpg`
+- `spanish-tobacco-ibraq.jpg`
+- `greek-tobacco.jpg`
+- `dominican-tobacco.jpg`
+- `brazilian-tobacco.jpg`
+- `cuban-tobacco.jpg`
 
-### Perfumes (`/products/{id}.jpg`)
+### Black Diamond Collection
+- `black-diamond-incense.jpg`
+- `blue-diamond-aqua.jpg`
 
-All 21 product IDs match `data/products.ts`.
+### Arrogate Collection
+- `arrogate-addict.jpg`
+- `arrogate-collection.jpg`
+- `frog-blue.jpg`
 
-### Gift sets (`/products/gift-sets/{id}.jpg`)
+### Signature Collection
+- `balas-rose-ibraq.jpg`
+- `pink-diamond-sakura.jpg`
+- `nude-coral-diamond.jpg`
+- `white-regent-diamond.jpg`
 
+### Gift Sets & Box Collection (save in `public/products/gift-sets/`)
 - `diamond-collection-box.jpg`
 - `match-discovery-set.jpg`
 - `assaf-bakhur-collection.jpg`
 
-### Hero
+### Homepage Hero
+- `hero.jpg` (Place this directly in `public/products/`)
 
-- `hero.jpg`
+## Photography Style Guide
+- **Composition:** Dramatic, dark backgrounds with spotlighting on the bottle
+- **Vibe:** Expensive, cinematic, editorial, Gulf luxury
+- **Quality:** High resolution, optimized for web
+
+_If an image is not found, the website will gracefully fallback to the `placeholder.svg`._

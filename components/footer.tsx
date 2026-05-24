@@ -2,27 +2,27 @@
 
 import Link from "next/link";
 import { Instagram, Facebook, MessageCircle } from "lucide-react";
-import { WHATSAPP_NUMBER, INSTAGRAM_URL, BUSINESS_NAME, BRAND_TAGLINE_AR } from "@/lib/constants";
+import { WHATSAPP_NUMBER, INSTAGRAM_URL, BUSINESS_NAME } from "@/lib/constants";
 
 const footerLinks = {
   shop: [
-    { label: "جميع المنتجات", href: "/shop" },
-    { label: "رجالي", href: "/shop?category=men" },
-    { label: "نسائي", href: "/shop?category=women" },
-    { label: "يونيسيكس", href: "/shop?category=unisex" },
-    { label: "طقم الهدايا", href: "/gift-sets" },
+    { label: "All Fragrances", href: "/shop" },
+    { label: "Men", href: "/shop?category=men" },
+    { label: "Women", href: "/shop?category=women" },
+    { label: "Unisex", href: "/shop?category=unisex" },
+    { label: "Gift Sets", href: "/gift-sets" },
   ],
   company: [
-    { label: "عن العلامة", href: "/about" },
-    { label: "تواصل معنا", href: "/contact" },
-    { label: "معلومات الشحن", href: "/shipping" },
-    { label: "الأسئلة الشائعة", href: "/faq" },
+    { label: "Our Story", href: "/about" },
+    { label: "Contact Us", href: "/contact" },
+    { label: "Shipping Info", href: "/shipping" },
+    { label: "FAQ", href: "/faq" },
   ],
   support: [
-    { label: "تتبع الطلب", href: "/track" },
-    { label: "سياسة الاسترجاع", href: "/returns" },
-    { label: "سياسة الخصوصية", href: "/privacy" },
-    { label: "الشروط والأحكام", href: "/terms" },
+    { label: "Track Order", href: "/track" },
+    { label: "Returns Policy", href: "/returns" },
+    { label: "Privacy Policy", href: "/privacy" },
+    { label: "Terms & Conditions", href: "/terms" },
   ],
 };
 
@@ -30,29 +30,30 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-card/80 border-t border-border arabesque-pattern relative">
+    <footer className="bg-background border-t border-gold/10 relative overflow-hidden cinematic-grain">
+      <div className="absolute inset-0 fog-overlay opacity-20 pointer-events-none" />
+      
       {/* Newsletter Section */}
-      <div className="border-b border-border/60 relative z-10">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <div className="border-b border-gold/10 relative z-10 bg-black/40">
+        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center text-center">
-            <h3 className="text-2xl sm:text-3xl arabic-display text-foreground mb-4">
-              انضم إلى قائمة المميزين
+            <h3 className="text-3xl sm:text-4xl luxury-title text-foreground mb-6">
+              Join the Inner Circle
             </h3>
-            <p className="text-muted-foreground max-w-md mb-8">
-              كن أول من يعرف عن الإصدارات الجديدة، التشكيلات المحدودة، والعروض الحصرية.
+            <p className="text-muted-foreground max-w-md mb-10 font-light">
+              Be the first to experience new releases, limited collections, and exclusive invitations.
             </p>
             <form className="flex flex-col sm:flex-row gap-4 w-full max-w-md">
               <input
                 type="email"
-                placeholder="أدخل بريدك الإلكتروني"
-                className="flex-1 bg-background border border-border px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary text-right rounded-sm"
-                dir="rtl"
+                placeholder="Enter your email"
+                className="flex-1 bg-background/50 border border-gold/20 px-6 py-4 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-gold transition-colors font-light text-sm"
               />
               <button
                 type="submit"
-                className="px-8 py-3 gold-gradient-bg text-white text-sm tracking-wider hover:opacity-90 transition-opacity luxury-button rounded-sm"
+                className="px-10 py-4 bg-gold text-oud-brown text-xs tracking-[0.2em] uppercase hover:bg-gold-light transition-colors shadow-[0_0_15px_rgba(193,155,75,0.2)] font-medium"
               >
-                اشترك الآن
+                Subscribe
               </button>
             </form>
           </div>
@@ -60,28 +61,25 @@ export default function Footer() {
       </div>
 
       {/* Main Footer */}
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
           {/* Brand */}
-          <div className="text-right">
-            <Link href="/" className="inline-block mb-6">
-              <span className="text-3xl arabic-display gold-gradient-text">
+          <div className="text-left">
+            <Link href="/" className="inline-block mb-8">
+              <span className="text-3xl luxury-title text-foreground">
                 {BUSINESS_NAME}
               </span>
             </Link>
-            <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-              {BRAND_TAGLINE_AR}
+            <p className="text-muted-foreground text-sm font-light leading-relaxed mb-8 pr-4">
+              Discover the finest authentic Gulf fragrances, imported directly from Saudi Arabia. Engineered for extraordinary presence and longevity.
             </p>
-            <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-              اكتشف أرقى العطور الخليجية الأصلية المستوردة من السعودية. جودة فائقة وروائح تدوم طويلاً.
-            </p>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-5">
               <a
                 href={INSTAGRAM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300 gold-border-glow"
-                aria-label="إنستغرام"
+                className="w-12 h-12 rounded-full border border-gold/20 flex items-center justify-center text-muted-foreground hover:text-gold hover:border-gold transition-all duration-300"
+                aria-label="Instagram"
               >
                 <Instagram className="h-5 w-5" />
               </a>
@@ -89,8 +87,8 @@ export default function Footer() {
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all duration-300 gold-border-glow"
-                aria-label="فيسبوك"
+                className="w-12 h-12 rounded-full border border-gold/20 flex items-center justify-center text-muted-foreground hover:text-gold hover:border-gold transition-all duration-300"
+                aria-label="Facebook"
               >
                 <Facebook className="h-5 w-5" />
               </a>
@@ -98,8 +96,8 @@ export default function Footer() {
                 href={`https://wa.me/${WHATSAPP_NUMBER}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-[#25D366] hover:border-[#25D366] transition-all duration-300"
-                aria-label="واتساب"
+                className="w-12 h-12 rounded-full border border-gold/20 flex items-center justify-center text-muted-foreground hover:text-[#25D366] hover:border-[#25D366] transition-all duration-300"
+                aria-label="WhatsApp"
               >
                 <MessageCircle className="h-5 w-5" />
               </a>
@@ -107,16 +105,16 @@ export default function Footer() {
           </div>
 
           {/* Shop Links */}
-          <div className="text-right">
-            <h4 className="text-sm tracking-wider text-foreground mb-6 arabic-heading">
-              المتجر
+          <div className="text-left">
+            <h4 className="text-[10px] tracking-[0.2em] uppercase text-gold mb-8">
+              Shop
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-4">
               {footerLinks.shop.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors font-light"
                   >
                     {link.label}
                   </Link>
@@ -126,16 +124,16 @@ export default function Footer() {
           </div>
 
           {/* Company Links */}
-          <div className="text-right">
-            <h4 className="text-sm tracking-wider text-foreground mb-6 arabic-heading">
-              الشركة
+          <div className="text-left">
+            <h4 className="text-[10px] tracking-[0.2em] uppercase text-gold mb-8">
+              House
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-4">
               {footerLinks.company.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors font-light"
                   >
                     {link.label}
                   </Link>
@@ -145,16 +143,16 @@ export default function Footer() {
           </div>
 
           {/* Support Links */}
-          <div className="text-right">
-            <h4 className="text-sm tracking-wider text-foreground mb-6 arabic-heading">
-              الدعم
+          <div className="text-left">
+            <h4 className="text-[10px] tracking-[0.2em] uppercase text-gold mb-8">
+              Client Care
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-4">
               {footerLinks.support.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors font-light"
                   >
                     {link.label}
                   </Link>
@@ -166,14 +164,14 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-border/60 relative z-10">
-        <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-            <p>© {currentYear} {BUSINESS_NAME}. جميع الحقوق محفوظة.</p>
-            <p className="flex items-center gap-2">
-              <span>التوصيل لجميع أنحاء مصر</span>
-              <span className="text-primary">·</span>
-              <span>الدفع عند الاستلام</span>
+      <div className="border-t border-gold/10 relative z-10 bg-black/60">
+        <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs tracking-widest uppercase text-muted-foreground/60">
+            <p>© {currentYear} {BUSINESS_NAME}. All Rights Reserved.</p>
+            <p className="flex items-center gap-3">
+              <span>Nationwide Delivery</span>
+              <span className="text-gold">·</span>
+              <span>Cash on Delivery</span>
             </p>
           </div>
         </div>
