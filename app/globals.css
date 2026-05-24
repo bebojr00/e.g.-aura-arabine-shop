@@ -252,9 +252,13 @@
   text-transform: uppercase;
 }
 
-/* Fallback aliases for components not yet updated */
-.arabic-display { @apply luxury-heading; }
-.arabic-heading { @apply luxury-heading; }
+.arabic-display,
+.arabic-heading {
+  font-family: var(--font-playfair), 'Playfair Display', serif;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+
 
 /* ───────────────────────────────────────── */
 /*  GOLD GRADIENT                           */
