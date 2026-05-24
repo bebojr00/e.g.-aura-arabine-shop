@@ -11,6 +11,7 @@ import { useRef, useEffect, useState } from "react";
 export default function Hero() {
   const ref = useRef(null);
   const [mounted, setMounted] = useState(false);
+
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
@@ -26,10 +27,18 @@ export default function Hero() {
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
 
   // Luxury easing curve
-  const easeInOutCubic = [0.65, 0, 0.35, 1];
+  const easeInOutCubic: [number, number, number, number] = [
+    0.65,
+    0,
+    0.35,
+    1,
+  ];
 
   return (
-    <section ref={ref} className="relative h-screen min-h-[900px] flex items-center justify-center overflow-hidden bg-black cinematic-grain">
+    <section
+      ref={ref}
+      className="relative h-screen min-h-[900px] flex items-center justify-center overflow-hidden bg-black cinematic-grain"
+    >
       {/* Background Image Layer with Parallax */}
       <motion.div
         className="absolute inset-0 z-0"
@@ -45,13 +54,13 @@ export default function Hero() {
           sizes="100vw"
           className="object-cover w-full h-full opacity-80"
         />
-        
+
         {/* Deep Atmospheric Overlays */}
         <div className="absolute inset-0 bg-black/50" />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/30" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/60" />
         <div className="vignette" />
-        
+
         {/* Animated Smoke & Flare */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gold/10 via-transparent to-transparent opacity-60 animate-smoke pointer-events-none" />
         <div className="absolute top-[20%] left-[30%] w-[40vw] h-[40vw] bg-gold/5 rounded-full blur-[100px] animate-flare pointer-events-none" />
@@ -71,7 +80,10 @@ export default function Hero() {
                 scale: Math.random() * 2 + 0.5,
               }}
               animate={{
-                y: [`${Math.random() * 100}vh`, `${Math.random() * -20}vh`],
+                y: [
+                  `${Math.random() * 100}vh`,
+                  `${Math.random() * -20}vh`,
+                ],
                 x: `+=${Math.random() * 50 - 25}px`,
                 opacity: [0, 0.8, 0],
               }}
@@ -94,52 +106,77 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.5, delay: 0.8, ease: easeInOutCubic }}
+          transition={{
+            duration: 1.5,
+            delay: 0.8,
+            ease: easeInOutCubic,
+          }}
           className="flex flex-col items-center"
         >
-          <motion.p 
+          <motion.p
             className="luxury-subheading text-[10px] text-gold mb-8"
             initial={{ opacity: 0, letterSpacing: "0.2em" }}
             animate={{ opacity: 1, letterSpacing: "0.4em" }}
-            transition={{ duration: 2, delay: 1.2, ease: easeInOutCubic }}
+            transition={{
+              duration: 2,
+              delay: 1.2,
+              ease: easeInOutCubic,
+            }}
           >
             {BUSINESS_NAME_EN}
           </motion.p>
-          
+
           <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl luxury-heading text-ivory mb-10 drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)] max-w-5xl leading-[1.1] tracking-tight">
-            <motion.span 
+            <motion.span
               className="block mb-2"
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.5, delay: 1.5, ease: easeInOutCubic }}
+              transition={{
+                duration: 1.5,
+                delay: 1.5,
+                ease: easeInOutCubic,
+              }}
             >
               Imported From
             </motion.span>
-            <motion.span 
+
+            <motion.span
               className="block gold-gradient-text"
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.5, delay: 1.8, ease: easeInOutCubic }}
+              transition={{
+                duration: 1.5,
+                delay: 1.8,
+                ease: easeInOutCubic,
+              }}
             >
               Saudi Arabia
             </motion.span>
           </h1>
-          
-          <motion.p 
+
+          <motion.p
             className="text-lg sm:text-xl text-sand-dark/80 leading-relaxed mb-16 max-w-2xl font-light"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 2, delay: 2.2, ease: easeInOutCubic }}
+            transition={{
+              duration: 2,
+              delay: 2.2,
+              ease: easeInOutCubic,
+            }}
           >
-            {BRAND_TAGLINE_EN}. Crafted for presence, engineered for longevity. 
+            {BRAND_TAGLINE_EN}. Crafted for presence, engineered for longevity.
             Discover your signature scent today.
           </motion.p>
-          
-          <motion.div 
+
+          <motion.div
             className="flex flex-col sm:flex-row gap-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.5, delay: 2.5, ease: easeInOutCubic }}
+            transition={{
+              duration: 1.5,
+              delay: 2.5,
+              ease: easeInOutCubic,
+            }}
           >
             <Link
               href="/shop"
@@ -150,6 +187,7 @@ export default function Hero() {
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-2 transition-transform duration-500" />
               </span>
             </Link>
+
             <Link
               href="/gift-sets"
               className="magnetic-button group inline-flex items-center justify-center px-12 py-6 border border-gold/30 text-ivory text-[11px] uppercase tracking-[0.2em] hover:border-gold hover:text-gold transition-all duration-700 luxury-glass"
@@ -170,9 +208,14 @@ export default function Hero() {
         <span className="text-[9px] tracking-[0.4em] uppercase text-sand-dark/50 font-light">
           Scroll to explore
         </span>
+
         <motion.div
           animate={{ y: [0, 15, 0], opacity: [0.2, 1, 0.2] }}
-          transition={{ duration: 2.5, repeat: Infinity, ease: easeInOutCubic }}
+          transition={{
+            duration: 2.5,
+            repeat: Infinity,
+            ease: easeInOutCubic,
+          }}
           className="w-[1px] h-20 bg-gradient-to-b from-gold via-gold/50 to-transparent"
         />
       </motion.div>
