@@ -488,7 +488,7 @@ export const giftSets: GiftSet[] = [
   },
   {
     id: "match-discovery-set",
-    name: "MATCH Collection",
+    name: "IBRAQ Collection",
     collection: "gift-sets",
     price: 3500,
     compareAtPrice: 4000,
