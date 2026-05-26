@@ -115,19 +115,9 @@ export default function GiftSetsContent() {
                   {set.description}
                 </p>
                 <p className="text-sm text-muted-foreground mb-3">
-                  يتضمن {set.products.length} عطور
+                  يتضمن 6 عطور
                 </p>
-                <div className="flex flex-wrap gap-2 mb-8">
-                  {set.products.map((pid) => (
-                    <Link
-                      key={pid}
-                      href={`/shop/${pid}`}
-                      className="px-3 py-1 bg-card border border-border text-xs hover:border-primary transition-colors"
-                    >
-                      {pid.replace(/-/g, " ")}
-                    </Link>
-                  ))}
-                </div>
+               
                 <div className="flex flex-wrap gap-3">
                   <button
                     type="button"
