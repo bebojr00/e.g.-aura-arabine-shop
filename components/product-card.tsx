@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, cubicBezier } from "framer-motion";
 import { ShoppingBag, Eye } from "lucide-react";
 import type { Product } from "@/lib/products";
 import { resolveProductBadges } from "@/lib/products";
@@ -21,6 +21,8 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const { addItem } = useCart();
   const badges = resolveProductBadges(product, index);
+  const easeInOutCubic = cubicBezier(0.65, 0, 0.35, 1);
+  const customEase = cubicBezier(0.2, 0.8, 0.2, 1);
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -41,7 +43,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 1, delay: index * 0.15, ease: [0.65, 0, 0.35, 1] }}
+      transition={{ duration: 1, delay: index * 0.15, ease: easeInOutCubic }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onMouseMove={handleMouseMove}
@@ -64,7 +66,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
               y: isHovered ? -30 : 0, 
               scale: isHovered ? 1.08 : 1 
             }}
-            transition={{ duration: 1, ease: [0.65, 0, 0.35, 1] }}
+            transition={{ duration: 1, ease: easeInOutCubic }}
             className="w-full h-full"
           >
             <ProductImage
@@ -85,7 +87,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
               type="button"
               initial={false}
               animate={{ y: isHovered ? 0 : 30, opacity: isHovered ? 1 : 0 }}
-              transition={{ delay: 0.1, duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }}
+              transition={{ delay: 0.1, duration: 0.6, ease: customEase }}
               onClick={handleAddToCart}
               className="magnetic-button w-14 h-14 bg-gold text-oud-brown rounded-full flex items-center justify-center hover:bg-gold-light transition-colors shadow-[0_0_20px_rgba(193,155,75,0.5)]"
               aria-label="Add to cart"
@@ -95,7 +97,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
             <motion.span
               initial={false}
               animate={{ y: isHovered ? 0 : 30, opacity: isHovered ? 1 : 0 }}
-              transition={{ delay: 0.2, duration: 0.6, ease: [0.2, 0.8, 0.2, 1] }}
+              transition={{ delay: 0.2, duration: 0.6, ease: customEase }}
               className="magnetic-button w-14 h-14 glass-card border border-gold/30 text-gold rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(0,0,0,0.5)]"
               aria-hidden
             >

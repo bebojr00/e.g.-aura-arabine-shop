@@ -2,7 +2,7 @@
 
 import { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, cubicBezier } from "framer-motion";
 import {
   Heart,
   Share2,
@@ -83,7 +83,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
   const yImage = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
   const yText = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
 
-  const easeInOutCubic = [0.65, 0, 0.35, 1];
+  const easeInOutCubic = cubicBezier(0.65, 0, 0.35, 1);
 
   return (
     <div className="min-h-screen bg-black cinematic-grain overflow-hidden">

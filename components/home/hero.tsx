@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, cubicBezier } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import ProductImage from "@/components/product-image";
@@ -27,12 +27,7 @@ export default function Hero() {
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
 
   // Luxury easing curve
-  const easeInOutCubic: [number, number, number, number] = [
-    0.65,
-    0,
-    0.35,
-    1,
-  ];
+  const easeInOutCubic = cubicBezier(0.65, 0, 0.35, 1);
 
   return (
     <section

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, cubicBezier } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import type { Collection, Product } from "@/data/products";
@@ -25,7 +25,7 @@ export default function CollectionSection({
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.7, delay: index * 0.05, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.7, delay: index * 0.05, ease: cubicBezier(0.22, 1, 0.36, 1) }}
       className="py-12 sm:py-16 border-b border-border/40 last:border-0"
     >
       <motion.div

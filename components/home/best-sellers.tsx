@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, cubicBezier } from "framer-motion";
 import ProductCard from "@/components/product-card";
 import { getBestSellers } from "@/lib/products";
 import Link from "next/link";
@@ -8,6 +8,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function BestSellers() {
   const bestSellers = getBestSellers();
+  const easeInOutCubic = cubicBezier(0.65, 0, 0.35, 1);
 
   return (
     <section className="py-40 relative bg-background cinematic-grain overflow-hidden">
@@ -22,7 +23,7 @@ export default function BestSellers() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-150px" }}
-          transition={{ duration: 1.2, ease: [0.65, 0, 0.35, 1] }}
+          transition={{ duration: 1.2, ease: easeInOutCubic }}
           className="text-center mb-32"
         >
           <p className="text-[10px] tracking-[0.5em] uppercase text-gold mb-8 font-medium">
@@ -45,7 +46,7 @@ export default function BestSellers() {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 1.2, delay: index * 0.2, ease: [0.65, 0, 0.35, 1] }}
+              transition={{ duration: 1.2, delay: index * 0.2, ease: easeInOutCubic }}
             >
               <ProductCard product={product} index={index} />
             </motion.div>
@@ -57,7 +58,7 @@ export default function BestSellers() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 1.2, delay: 0.5, ease: [0.65, 0, 0.35, 1] }}
+          transition={{ duration: 1.2, delay: 0.5, ease: easeInOutCubic }}
           className="text-center mt-32"
         >
           <Link

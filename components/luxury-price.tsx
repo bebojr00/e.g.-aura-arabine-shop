@@ -7,7 +7,7 @@ import { getDiscountPercent } from "@/lib/pricing";
 interface LuxuryPriceProps {
   price: number;
   compareAtPrice?: number;
-  size?: "sm" | "md" | "lg";
+  size?: "sm" | "md" | "lg" | "default";
   showBadge?: boolean;
   className?: string;
 }
@@ -27,6 +27,11 @@ const sizeClasses = {
     current: "text-2xl sm:text-3xl",
     old: "text-lg",
     badge: "text-xs px-3 py-1",
+  },
+  default: {
+    current: "text-lg sm:text-xl",
+    old: "text-sm",
+    badge: "text-[10px] px-2.5 py-1",
   },
 };
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, cubicBezier } from "framer-motion";
 import { X, Plus, Minus, ShoppingBag, MessageCircle } from "lucide-react";
 import Link from "next/link";
 import { useCart } from "@/lib/cart-context";
@@ -46,7 +46,7 @@ export default function CartDrawer() {
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
-            transition={{ type: "tween", duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ type: "tween", duration: 0.4, ease: cubicBezier(0.22, 1, 0.36, 1) }}
             className="fixed top-0 right-0 bottom-0 z-50 w-full max-w-md bg-background border-l border-gold/10 flex flex-col shadow-2xl cinematic-grain"
             role="dialog"
             aria-label="Shopping Cart"

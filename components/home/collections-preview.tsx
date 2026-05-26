@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, cubicBezier } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -30,6 +30,8 @@ const collections = [
 ];
 
 export default function CollectionsPreview() {
+  const easeInOutCubic = cubicBezier(0.65, 0, 0.35, 1);
+
   return (
     <section className="py-40 bg-background cinematic-grain relative border-t border-gold/10">
       <div className="absolute inset-0 fog-overlay opacity-30 pointer-events-none" />
@@ -40,7 +42,7 @@ export default function CollectionsPreview() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-150px" }}
-          transition={{ duration: 1.2, ease: [0.65, 0, 0.35, 1] }}
+          transition={{ duration: 1.2, ease: easeInOutCubic }}
           className="text-center mb-32"
         >
           <p className="text-[10px] tracking-[0.5em] uppercase text-gold mb-8 font-medium">
@@ -60,7 +62,7 @@ export default function CollectionsPreview() {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 1.2, delay: index * 0.2, ease: [0.65, 0, 0.35, 1] }}
+              transition={{ duration: 1.2, delay: index * 0.2, ease: easeInOutCubic }}
             >
               <Link href={collection.href} className="group block relative luxury-glass h-[600px] overflow-hidden transform transition-all duration-700 hover:shadow-[0_40px_60px_rgba(0,0,0,0.8)] hover:-translate-y-4">
                 <div className="absolute inset-0">
