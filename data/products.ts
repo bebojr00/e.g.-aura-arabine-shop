@@ -414,7 +414,7 @@ export const products: Product[] = [
     brand: "IBRAQ",
     category: "unisex",
     collection: "signature",
-    price: 2500,
+    price: 2000,
     priceLarge: 3800,
     description:
       "Elegant rose fragrance suitable for gifts and special occasions.",
@@ -430,7 +430,7 @@ export const products: Product[] = [
     brand: "Diamond Collection",
     category: "women",
     collection: "signature",
-    price: 1800,
+    price: 2000,
     priceLarge: 2800,
     description:
       "Soft feminine floral luxury scent with delicate cherry blossom notes.",
@@ -446,7 +446,7 @@ export const products: Product[] = [
     brand: "Diamond Collection",
     category: "women",
     collection: "signature",
-    price: 1700,
+    price: 2000,
     priceLarge: 2600,
     description:
       "Fresh summer feminine fragrance with coral and aquatic notes.",
@@ -461,7 +461,7 @@ export const products: Product[] = [
     brand: "Diamond Collection",
     category: "unisex",
     collection: "signature",
-    price: 2200,
+    price: 2000,
     priceLarge: 3300,
     description:
       "Clean luxurious scent suitable for daily use and evenings.",
