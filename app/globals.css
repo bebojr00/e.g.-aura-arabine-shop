@@ -12,7 +12,7 @@
 
   /* Cards — soft sand */
   --card: oklch(0.96 0.01 80);              /* Soft Sand Beige */
-  --card-foreground: oklch(0.15 0.02 55);
+  --card-foreground: oklch(0.40 0.02 60);
 
   /* Popovers */
   --popover: oklch(0.96 0.01 80);
